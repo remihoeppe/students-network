@@ -1,58 +1,60 @@
-# students-network
+# Nology Students Network
 
-A linked node 3D representation of all the \_nology alumni I have taught since 2022
+## Project outline
 
-## React + TypeScript + Vite
+### 📘 Project Overview
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project visualizes the network of students I’ve taught since 2022 (130+ and growing) using a node-link diagram. Each student is represented as a node, and connections between them represent shared experiences — initially based on being part of the same cohort.
 
-Currently, two official plugins are available:
+The goal is to create a meaningful and interactive map of this community that evolves over time.
 
--   [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
--   [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🎯 Purpose
+To track and visualize the network of students across cohorts.
 
-## Expanding the ESLint configuration
+To explore how shared learning environments foster connections.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+To provide an evolving tool that highlights career paths and professional overlaps as students progress into the workforce.
 
-```js
-export default tseslint.config({
-    extends: [
-        // Remove ...tseslint.configs.recommended and replace with this
-        ...tseslint.configs.recommendedTypeChecked,
-        // Alternatively, use this for stricter rules
-        ...tseslint.configs.strictTypeChecked,
-        // Optionally, add this for stylistic rules
-        ...tseslint.configs.stylisticTypeChecked,
-    ],
-    languageOptions: {
-        // other options...
-        parserOptions: {
-            project: ['./tsconfig.node.json', './tsconfig.app.json'],
-            tsconfigRootDir: import.meta.dirname,
-        },
-    },
-});
-```
+### Features
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+#### V.1.0
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x';
-import reactDom from 'eslint-plugin-react-dom';
+🧑‍🎓 Cohort-Based Connections: Each student is linked to others in their cohort, making it easy to see groups that learned together.
 
-export default tseslint.config({
-    plugins: {
-        // Add the react-x and react-dom plugins
-        'react-x': reactX,
-        'react-dom': reactDom,
-    },
-    rules: {
-        // other rules...
-        // Enable its recommended typescript rules
-        ...reactX.configs['recommended-typescript'].rules,
-        ...reactDom.configs.recommended.rules,
-    },
-});
-```
+🔍 Interactive Diagram: Hover, drag, and explore the network dynamically.
+
+🧩 Scalable Design: As new students are added, the diagram updates to reflect the evolving network.
+
+#### V.2.0
+
+🏢 Future Enhancements:
+
+-   Workplace Connections: In a future iteration, the diagram will also show links between students who go on to work at the same company, allowing users to trace career paths and emerging clusters in the tech industry.
+-   Integrate a simple admin panel to add/update students and metadata
+
+### 🛠️ Tech Stack
+
+-   Frontend: React TS, leveraging react-force-graph-3d (which Uses ThreeJS/WebGL for 3D rendering and either d3-force-3d or ngraph for the underlying physics engine.)
+
+-   Data: JSON/CSV for student records (initially static)
+
+-   Hosting: [e.g. GitHub Pages, Vercel, Netlify, etc.] TBC
+
+## What's a Linked Node Diagram?
+
+A linked node diagram (also called a node-link diagram) is a type of visual representation used to show relationships or connections between entities, often referred to as nodes. The nodes are typically connected by lines or arrows called links or edges.
+
+Key Elements:
+
+-   Nodes: Represent entities like people, devices, data points, or abstract concepts.
+
+-   Links/Edges: Represent the relationships or interactions between the nodes.
+
+### Use Cases
+
+-   Network diagrams (e.g., computer networks, social networks)
+-   Graph theory visualization
+-   Mind maps
+-   Family trees
+-   Organization charts
+-   Data flow diagrams
