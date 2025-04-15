@@ -1,19 +1,19 @@
-type Student = {
+export type Student = {
     id: string;
     name: string;
     cohort: string;
     coach: string;
-    url: string;
+    url?: string;
 };
 
-type StudentLink = {
+export type StudentLink = {
     source: string;
     target: string;
     value: number;
     type: 'coach' | 'cohort';
 };
 
-enum LinkType {
+export enum LinkType {
     COACH = 'coach',
     COHORT = 'classmate',
     WORK = 'colleage',

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { convertCSVToObjects, convertCSVToText } from './data/Student';
 import './styles/App.scss';
+import { generateNetworkData } from './data/Graph';
 
 const App = () => {
     const [data, setData] = useState<Record<string, string>[] | void>([]);
@@ -17,6 +18,7 @@ const App = () => {
 
     useEffect(() => {
         console.log(data);
+        generateNetworkData(data || []);
     }, [data]);
 
     useEffect(() => {
