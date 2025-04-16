@@ -1,6 +1,6 @@
 export type Student = {
-    id: string;
-    name: string;
+    id: number;
+    fullname: string;
     cohort: string;
     coach: string;
     url?: string;
@@ -16,7 +16,7 @@ export type StudentLink = {
 export enum LinkType {
     COACH = 'coach',
     COHORT = 'classmate',
-    WORK = 'colleage',
+    WORK = 'colleague',
 }
 
 export const convertCSVToText = async (
