@@ -1,24 +1,34 @@
-import { Student, StudentLink } from './Student';
+import { LinkType, Node, StudentLink } from './Student';
 
-export const generateNetworkData = (studentData: Record<string, string>[]) => {
-    const nodes: Student[] = [];
+export const generateNetworkData = (
+    studentData: Record<string, string>[],
+): {} => {
+    const nodes: Node[] = [];
     const links: StudentLink[] = [];
     const nodeIds = new Set<string>();
 
     for (let i = 0; i < studentData.length; i++) {
-        console.log(studentData[i]);
         const current = studentData[i];
-        const { fullname, cohort, coach, id, ..._ } = current;
+        const { name, cohort, mainCoach, ..._ } = current;
+        const nodeId = name.toLowerCase().split(' ').join('-');
 
-        if (!nodeIds.has(id)) {
+        // Add student node if it doesn't exist
+        if (!nodeIds.has(name)) {
             nodes.push({
-                id: i + 1,
-                fullname,
+                id: nodeId,
+                name,
                 cohort,
-                coach,
+                coach: mainCoach,
             });
-            nodeIds.add(id);
+            nodeIds.add(nodeId);
         }
+
+        links.push({
+            source: nodeId,
+            target: mainCoach,
+            value: 3, // Stronger connection weight
+            type: LinkType.COACH,
+        });
     }
 
     return { nodes, links };

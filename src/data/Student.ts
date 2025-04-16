@@ -1,9 +1,25 @@
 export type Student = {
-    id: number;
-    fullname: string;
+    id: string;
+    name: string;
     cohort: string;
     coach: string;
     url?: string;
+};
+
+export type Coach = {
+    id: string;
+    name: string;
+    cohort?: string;
+    coach?: string;
+    url?: string;
+};
+
+export type Node = Student | Coach;
+export type Link = {
+    source: string;
+    target: string;
+    value: number;
+    type: LinkType;
 };
 
 export type StudentLink = {
@@ -18,6 +34,11 @@ export enum LinkType {
     COHORT = 'classmate',
     WORK = 'colleague',
 }
+
+export type GraphData = {
+    nodes: Node[];
+    links: Link[];
+};
 
 export const convertCSVToText = async (
     filePath: string,
