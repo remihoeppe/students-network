@@ -2,24 +2,23 @@ import { useEffect, useState } from 'react';
 import { convertCSVToObjects } from './data/csvUtils';
 import './styles/App.scss';
 import { generateNetworkData } from './data/Graph';
+import { GraphData } from './data/Student';
 
 const App = () => {
+    const CSV_FILE = './students-data.csv';
     const [data, setData] = useState<Record<string, string>[]>([]);
     const [graphData, setGraphData] = useState<GraphData | null>(null);
 
-    async function loadData() {
+    const loadData = async () => {
         try {
-            // src/data/students-data.csv
-
-            setData(await convertCSVToObjects('./students-data.csv'));
+            setData(await convertCSVToObjects(CSV_FILE));
         } catch (err) {
             console.error('Error loading network data:', err);
         }
-    }
+    };
 
     useEffect(() => {
-        console.log(generateNetworkData(data));
-        console.log(data);
+        setGraphData(generateNetworkData(data));
     }, [data]);
 
     useEffect(() => {
