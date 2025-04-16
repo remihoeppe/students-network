@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
-import { convertCSVToObjects } from './data/Student';
+import { convertCSVToObjects } from './data/csvUtils';
 import './styles/App.scss';
 import { generateNetworkData } from './data/Graph';
 
 const App = () => {
     const [data, setData] = useState<Record<string, string>[]>([]);
+    const [graphData, setGraphData] = useState<GraphData | null>(null);
 
     async function loadData() {
         try {
